@@ -5,6 +5,11 @@
   <div class="row">
     
     <h3>Categorias</h3>
+  </div>
+    <br/>
+    <a class="btn btn-primary" href="{{url_for('categorias_new')}}" role="button">Nueva categoria</a>
+    <br/><br/>
+
     <div class="list-group">
       <table class="table table-bordered">
         <tr>
@@ -13,12 +18,13 @@
         {% for c in categorias %}
           <tr>
             <td>{{ c.nombre }}</td>
+            <td><a href="https://www.google.es"><span class="glyphicon glyphicon-pencil">Modificar</span></a></td>
           </tr>
         {% endfor %}
       </table>
     </div>
 
-  </div>
+  
 </div>
 
 {% endblock %}
