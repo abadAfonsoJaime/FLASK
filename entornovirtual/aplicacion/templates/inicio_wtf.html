@@ -1,0 +1,9 @@
+{% extends "base_form.html" %}
+{% block title %}Prueba{% endblock %}
+{% block dynamic %}
+	<h2>ejercicio con formulario</h2>
+	<ul>
+		<li><a href="{{url_for('calculadora_post_wtf')}}">Calculadora con POST</a></li>
+	</ul>
+
+{% endblock %}

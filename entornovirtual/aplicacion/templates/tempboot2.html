@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Suma: {{num1}}+{{num2}}{% endblock %}
+{% block content%}
+  <h2>Suma</h2>
+  {% if resultado > 0 %}
+    <p>El resultado es positivo(+)</p>
+  {% else %}
+    <p>El resultado es negativo(-)</p>
+  {% endif %}
+  <h3>{{resultado}}</h3>
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/myStyleSheet.css')}}">
+{% endblock %}
+
+{% block scripts %}
+<script src="{{url_for('.static', filename='js/my_scripts.js')}}"></script>
+{{super()}}
+{% endblock %}
+
+{% block html_attribs %} lang="es"{% endblock %}

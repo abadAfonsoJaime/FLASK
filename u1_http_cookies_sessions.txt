@@ -1,0 +1,30 @@
+Para hacer la conversión TCP/IP hay que convertir el nombre del servidor en un dirección IP.
+Este es un paso intermedio dentro del protocolo HTTP
+	
+	GET --> Solicita un documento al servidor
+	HEAD --> Similar al GET, pero sólo pide las cabeceras HTTP
+	POST --> Manda datos al servidor para su procesado
+	PUT --> Almacena el documento enviado en el cuerpo del mensaje
+	DELETE --> Elimina el documento referenciado en la URL
+
+	Cabeceras
+		Server
+		Age
+		Cache-control
+		Content-Encoding
+		Expires
+		Location
+		Set-Cookie
+
+	Las cookies son información que el navegador guarda en memoria o en el disco duro dentro de ficheros de texto
+		Guarda información de la sesión
+		Comercio electrónico
+		Carrito de la compra
+		Personalización de páginas (traducción de idiomas en la cookie del usuario)
+		Idiomas
+		Seguimiento de las visitas a una Web
+		Carteles publicitarios
+		Almacenamiento del login y password (siempre cifrada! GDPR)
+
+	Las sesiones permiten definir varios estados distintos en la app.
+	Client y server intercambian información sobre el estado de la app.

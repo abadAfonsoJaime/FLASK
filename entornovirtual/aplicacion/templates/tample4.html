@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Enlaces{% endblock %}
+{% block content %}
+	<h2>Enlaces</h2>
+	{% if enlaces %}
+	<ul>
+	{% for link in enlaces -%}
+		<li><a href="{{ link.url }}">{{ link.texto }}</a></li>
+	{% endfor -%}
+		</ul>
+	{% else %}
+		<p>No hay enlaces</p>
+	{% endif %}
+{% endblock %}

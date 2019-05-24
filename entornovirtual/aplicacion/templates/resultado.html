@@ -1,0 +1,7 @@
+{% extends "base_form.html" %}
+{% block title %}Resultado{% endblock %}
+{% block dynamic %}
+	<h2>Resultado de la Operación</h2>
+	<h3>{{num1}}{{operador}}{{num2}} = {{resultado}}</h3>
+	<a href="{{url_for('inicio')}}">Volver</a>
+{% endblock %}

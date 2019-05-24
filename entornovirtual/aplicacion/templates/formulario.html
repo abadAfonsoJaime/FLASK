@@ -1,0 +1,50 @@
+{% extends "base_form.html" %}
+{% block title %}Prueba de formulario{% endblock %}
+{% block dynamic %}
+	<h2>Formulario</h2>
+	<form action={{url_for("procesar_formulario")}} method="post">
+		<p>
+			Nombre: <input type="text" name="name_control" autofocus required />
+			<br />
+			Contraseña: <input type="password" name="pass_control" required />
+			<br />
+			Correo Electrónico: <input type="email" name="email_control" required />
+			<br />
+			URL: <input type="url" name="url_control" placeholder="Escribe la URL de tu página web personal" />
+			<br />
+			Fecha: <input type="date" name="date_control" />
+			<br />
+			Tiempo: <input type="time" name="time_control" />
+			<br />
+			Número (min -10, max 10): <input type="number" name="number_control" min="-10" max="10" value="0" />
+			<br />
+			Término de búsqueda: <input type="search" name="search_control" />
+			<br />
+			Color Favorito: <input type="color" name="color_control" />
+			<br />
+			Sistema operativo:
+			<select name="sistema_control">
+				<option value="windows">Windows</option>
+				<option value="linux">Linux</option>
+				<option value="macos">Macos</option>
+			</select>
+			<br />
+			¿Qué leguaje de programación web concoes?
+			<input type="checkbox" name="lenguaje_control" value="html5" checked /> Html5
+			<input type="checkbox" name="lenguaje_control" value="css3" checked /> CSS3
+			<input type="checkbox" name="lenguaje_control" value="javascript" checked /> JavaScript
+			<input type="checkbox" name="lenguaje_control" value="php" checked /> Php
+			<input type="checkbox" name="lenguaje_control" value="python" checked /> Python
+			<br />
+			¿Sabes utilizar Python?
+			<input type="radio" name="python_control" value="si" checked /> Si
+			<input type="radio" name="python_control" value="no" checked /> No
+			<br />
+			Comentarios:
+			<textarea name="comentario_control" cols="50" rows="4"></textarea>
+			<br />
+			<br />
+			<input type="submit" value="Submit!" />
+		</p>
+	</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "parent.html" %}
+{% block title %}Tienda de Videojuegos{% endblock %}
+{% block dynamic %}
+<div class="container">
+  <div class="row">
+    
+    <h3>Categorias</h3>
+    <div class="list-group">
+      <table class="table table-bordered">
+        <tr>
+          <th>Nombre</th>
+        </tr>
+        {% for c in categorias %}
+          <tr>
+            <td>{{ c.nombre }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

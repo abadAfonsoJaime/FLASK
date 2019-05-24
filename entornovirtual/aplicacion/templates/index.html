@@ -1,0 +1,61 @@
+{% extends "parent.html" %}
+{% block title %}Tienda de Videojuegos{% endblock %}
+{% block dynamic %}
+<div class="container">
+  <div class="row">
+    
+    <!-- Menú lateral con las categorias -->
+    <div class="col-md-2">
+      <h3>Categorias...</h3>
+      <div class="list-group">
+        {% for c in categorias %}
+        {% if cat.nombre==c.nombre %}
+          <a class="list-group-item active" href="{{url_for('init', id=cat.id)}}">{{ cat.nombre }}</a>
+        {% else %}
+          <a class="list-group-item" href="{{url_for('init', id=c.id)}}">{{ c.nombre }}</a>
+        {% endif %}
+        {% endfor %}
+      </div>
+
+      <br/>
+        <a class="btn btn-primary" href="{{url_for('articulos_new')}}" role="button">Nuevo videojuego</a>
+      <br/>
+    </div>
+
+    <div class="col-md-10">
+      <h3>Nuestros videojuegos... ({{ cat.nombre }})</h3>
+      <div class="panel panel-default">
+        <table class="table table-bordered">
+          <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>PVP</th>
+            <th>Comparar</th>
+          </tr>
+            {% for a in articulos %}
+              <tr>
+                {% if a.image %}
+                  <td>
+                    <img src="{{url_for('static', filename='media/')}}{{a.image}}" alt="">
+                  </td>
+                {% else %}
+                  <td>
+                    <img src="{{url_for('static', filename='media/not-found.png')}}" alt="">
+                  </td>
+                {% endif %}
+                  <td>{{ a.nombre }}</td>
+                  <td>{{ a.descripcion }}</td>
+                  <td>{{ a.precio_final() }}</td>
+                  <td>
+                    <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar</a>
+                  </td>
+              </tr>
+            {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

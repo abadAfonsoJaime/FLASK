@@ -1,0 +1,11 @@
+{% extends "base_form.html" %}
+{% block title %}Subida de archivos{% endblock %}
+{% block dynamic %}
+	<h2>Galería de imágenes</h2>
+		{% for list in lista %}
+			<img src="{{url_for('static', filename='media/')}}{{list}}"/>
+		{% endfor %}
+		<br/>
+		<a href="{{url_for('upload')}}">Subir Imagen</a>
+		<br/>
+{% endblock %}
