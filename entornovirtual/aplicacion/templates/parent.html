@@ -13,7 +13,15 @@
           <a class="navbar-brand" href="/">Tienda</a>
           <a class="navbar-brand" href="{{url_for('categorias')}}">Categorias</a>
         </div>
-        
+        <div>
+          {% if session["id"] %}
+            <a class="navbar-brand" href="/perfil/{{ session['username'] }}">Perfil</a>
+            <a class="navbar-brand" href="/logout"> Hola, {{ session["username"] }} (Salir)</a>
+          {% else %}
+            <a class="navbar-brand" href="/login">Login</a>
+            <a class="navbar-brand" href="/registro">Registro</a>
+          {% endif %}
+        </div>
       </div>
     </nav>
 

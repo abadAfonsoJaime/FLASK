@@ -12,7 +12,7 @@
 			</div>
 		{% endfor %}
 
-		<form action={{url_for("articulos_new")}} method="post"m enctype="multipart/form-data">
+		<form class="form-horizontal" method="post" enctype="multipart/form-data">
 			<div>
 				{{ form.csrf_token }}
 				{{ form.nombre.label() }}{{ form.nombre(size="100", class="form-control") }}

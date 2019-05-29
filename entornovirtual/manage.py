@@ -11,6 +11,7 @@ from aplicacion.app import app, db
 # from aplicacion.app_wtf import app
 # from aplicacion.app_file import app
 from aplicacion.model import *
+from getpass import getpass
 
 
 manager = Manager(app) # Creamos un objeto Manager pásandole la app al constructor
@@ -58,6 +59,20 @@ def add_data_tables():
 		juego=Articulos(**jue)
 		db.session.add(juego)
 		db.session.commit()
+
+
+@manager.command
+def create_admin():
+	usuario = {
+		"username": input("Usuario:"), #admin
+		"password": getpass("Password:"), #admin
+		"nombre": input("Nombre completo:"), #Administrador
+		"email": input("Email:"), #admin@admin.es
+		"admin": True
+	}
+	user = Usuarios(**usuario)
+	db.session.add(user)
+	db.session.commit()
 
 
 if __name__ == '__main__':

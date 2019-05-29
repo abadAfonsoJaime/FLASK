@@ -18,7 +18,9 @@
       </div>
 
       <br/>
+      {% if is_admin %}
         <a class="btn btn-primary" href="{{url_for('articulos_new')}}" role="button">Nuevo videojuego</a>
+      {% endif %}
       <br/>
     </div>
 
@@ -31,7 +33,13 @@
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>PVP</th>
-            <th>Comparar</th>
+            {% if is_admin %}
+            <th>Modificar</th>
+            <th>Borrar</th>
+            {% endif %}
+            {% if is_login %}
+            <th>Comprar</th>
+            {% endif %}
           </tr>
             {% for a in articulos %}
               <tr>
@@ -47,9 +55,25 @@
                   <td>{{ a.nombre }}</td>
                   <td>{{ a.descripcion }}</td>
                   <td>{{ a.precio_final() }}</td>
+                  {% if is_admin %}
                   <td>
-                    <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Comprar</a>
+                    <a href="{{url_for('articulos_edit', id=a.id)}}">
+                      <span class="glyphicon glyphicon-pencil"> Modificar </span>
+                    </a>
                   </td>
+                  <td>
+                    <a href="{{url_for('articulos_delete', id=a.id)}}">
+                      <span class="glyphicon glyphicon-trash"> Borrar </span>
+                    </a>
+                  </td>
+                  {% endif %}
+                  {% if is_login %}
+                  <td>
+                    <a href="#"><span class="glyphicon glyphicon-shopping-cart">
+                      </span> Comprar
+                    </a>
+                  </td>
+                  {% endif %}
               </tr>
             {% endfor %}
         </table>
